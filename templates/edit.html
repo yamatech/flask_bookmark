@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>編集 — Bookmark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="edit-wrap">
+    <div class="edit-card">
+      <h1>ブックマークを編集</h1>
+      <form action="/edit/{{ bookmark.id }}" method="post">
+        <div class="field">
+          <label>タイトル *</label>
+          <input type="text" name="title" value="{{ bookmark.title }}" required>
+        </div>
+        <div class="field" style="margin-top:.75rem">
+          <label>URL *</label>
+          <input type="url" name="url" value="{{ bookmark.url }}" required>
+        </div>
+        <div class="field" style="margin-top:.75rem">
+          <label>タグ</label>
+          <input type="text" name="tag" value="{{ bookmark.tag }}">
+        </div>
+        <div class="field" style="margin-top:.75rem">
+          <label>メモ</label>
+          <input type="text" name="description" value="{{ bookmark.description }}">
+        </div>
+        <div class="form-actions" style="margin-top:1.5rem">
+          <button class="btn-submit" type="submit">保存</button>
+          <a class="btn-back" href="/">← 戻る</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
